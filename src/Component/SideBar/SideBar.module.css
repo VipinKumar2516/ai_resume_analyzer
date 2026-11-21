@@ -1,0 +1,32 @@
+.sideBar {
+    flex: 0.2;
+    background-color: rgb(24, 39, 204);
+    color : white;
+    height: 100vh;
+    flex-shrink: 0;
+}
+.sideBarIcon {
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.sideBartop {
+    font-size: 50px;
+}
+
+.sideBaroptionBlock {
+    margin-top: 50px;
+}
+.sideBaroption {
+    padding: 50px 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 40px;
+    text-decoration: none;
+}
