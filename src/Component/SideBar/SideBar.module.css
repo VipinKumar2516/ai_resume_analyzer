@@ -30,3 +30,8 @@
     font-size: 40px;
     text-decoration: none;
 }
+
+.selectedOption {
+    background-color: rgb(91, 110, 254);
+
+}
