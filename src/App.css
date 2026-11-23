@@ -1,15 +1,28 @@
+*,
+*::before,
+*::after
+{
+  box-sizing: border-box;
+}
+
 body
 {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
 .App
 {
   display: flex;
-  flex-shrink: 0;
-  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+/* everything to the right of the sidebar */
+.AppContent
+{
+  flex: 1;
+  min-width: 0;   /* stops wide content from pushing the layout */
 }
 
 @media screen and (max-width: 768px) {

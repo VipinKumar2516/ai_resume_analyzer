@@ -1,111 +1,247 @@
+/* ---------- Page area (everything right of the sidebar) ---------- */
 .Dashboard
 {
-    flex: 1;
-    height: 500vh;
-    overflow:auto;
+    min-height: 100vh;
     display: flex;
-    padding: 100 px;
-    justify-content: space-between;
-    background-color: rgb(207, 207, 207);
+    justify-content: flex-start;     /* card on the left, right 30% stays empty */
+    align-items: stretch;            /* card stretches to full column height */
+    padding: clamp(24px, 3.5vw, 80px);
+    background-color: rgb(240, 241, 246);
     box-sizing: border-box;
 }
 
+/* ---------- Main card (70% width) ----------
+   font-size is the single "scale" for the whole card:
+   everything inside is in em, so it scales with the screen. */
 .Dashboardleft
 {
-    width: 70%;
-    height: 100%;
-    height: fit-content;
-    padding: 30px;
-    border-radius: 20px;
-    background-color: whitesmoke;
+    flex: 0 0 70%;
+    max-width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8em;
+    padding: 2.2em 2em;
+    border-radius: 1.8em;
+    background-color: rgb(247, 248, 252);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.12);
     box-sizing: border-box;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+    font-size: clamp(12px, 1.15vw, 24px);
+}
+
+/* ---------- Header ---------- */
+.Dashboardheader
+{
+    margin-bottom: 0.6em;
 }
 
 .Dashboardtitle
 {
-    font-size: 40px;
-    font-weight: 600;
+    font-size: 1.5em;
+    font-weight: 700;
 }
 
 .Dashboardlargetitle
 {
-    font-size: 65px;
-    font-weight: 600;
+    font-size: 2.8em;
+    font-weight: 500;
+    line-height: 1.1;
 }
+
+/* ---------- Instructions pill ---------- */
 .alert
 {
-    width: 100%;
+    padding: 1.3em 1.6em;
+    border-radius: 2.6em;
+    font-size: 0.95em;
+    background-color: white;
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
-    border-radius: 50px;
-    padding: 30px 40px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
-    margin: 40px 0px;
-    font-size: 30px;
-    background-color: whitesmoke;
 }
 
-.instruction
+.alerttitle
 {
-    margin-left: 20px;
+    margin-bottom: 0.4em;
 }
 
+.instructions
+{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+    margin-left: 1.4em;
+}
+
+/* ---------- Row 1: upload pill + Upload Resume button ---------- */
 .Dashboardcontent
 {
-    display:flex;
-    justify-content: space-between;
-    gap:30px; 
+    display: grid;
+    grid-template-columns: 65fr 30fr;
+    column-gap: 5%;
+    align-items: stretch;
 }
 
 .Dashboardcontentupload
 {
-    width: 65%;
-    background-color: whitesmoke;
-    border-radius: 30px;
-    padding: 30px 20px;
-    box-sizing: border-box;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
-    font-size: 30px;
-}
-
-.Dashboardinputfield
-{
     display: flex;
     align-items: center;
+    padding: 1em 1.6em;
+    border-radius: 3em;
+    background-color: white;
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    font-size: 1.35em;
 }
 
 .Dashboardpdfinput
 {
-   font-size: 30px;
-   cursor: pointer;
-   color: white;
-   font-weight: 600;
-   background: linear-gradient(90deg, #fca326, #f94a6b);
-   border-radius: 30px;
-   border: 3px solid black;
-   padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9em 1em;
+    border: 2px solid black;
+    border-radius: 3em;
+    background: linear-gradient(90deg, #f6b043, #e8607a);
+    box-sizing: border-box;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: filter 0.2s ease;
 }
 
-input
+.Dashboardpdfinput:hover
+{
+    filter: brightness(1.07);
+}
+
+.hiddenInput
 {
     display: none;
 }
 
+/* ---------- Row 2: job description + round Analyze button ---------- */
 .jobdescription
 {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
-    box-sizing: border-box;
+    flex: 1;                         /* grows with the window height */
+    display: grid;
+    grid-template-columns: 65fr 30fr;
+    grid-template-rows: 1fr;
+    column-gap: 5%;
 }
 
 .txtarea
 {
+    width: 100%;
+    height: 100%;
+    min-height: 10em;
+    padding: 1.1em 1.4em;
+    border: 2px solid rgb(43, 47, 143);
+    border-radius: 1.6em;
     outline: none;
-    border-radius: 20px;
-    border: 3px solid black;
-    width:70%;
-    padding: 20px 30px;
+    background-color: white;
     box-sizing: border-box;
     resize: none;
+    font-size: 1em;
+}
+
+.txtarea:focus
+{
+    border-color: rgb(91, 110, 254);
+    box-shadow: 0 0 0 3px rgba(91, 110, 254, 0.25);
+}
+
+.analyzebtn
+{
+    align-self: start;
+    justify-self: end;
+    width: 72%;
+    aspect-ratio: 1 / 1;
+    border: 2px solid black;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #f6b043, #e8607a);
+    color: white;
+    font: inherit;
+    font-size: 1.3em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.analyzebtn:hover
+{
+    transform: scale(1.04);
+    filter: brightness(1.07);
+}
+
+/* ---------- Small screens ---------- */
+@media screen and (max-width: 768px) {
+    .Dashboardleft
+    {
+        flex: 1 1 100%;
+        max-width: 100%;
+        font-size: 14px;
+    }
+
+    .Dashboardcontent,
+    .jobdescription
+    {
+        grid-template-columns: 1fr;
+        row-gap: 1em;
+    }
+
+    .jobdescription
+    {
+        grid-template-rows: auto auto;
+    }
+
+    .txtarea
+    {
+        height: 12em;
+    }
+
+    .analyzebtn
+    {
+        width: 9em;
+        justify-self: center;
+    }
+}
+
+.Dashboardright
+{
+    margin-right: 20px; 
+    margin-left: 20px;  
+    width: 25%;
+    height: fit-content;
+    box-sizing: border-box;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 500px;
+}
+
+.Dashboardrighttop
+{
+    font-size: 50px;
+    border-radius:20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.Dashboardrighttop div:first-child
+{
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.profileimg
+{
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    margin: 20px 0;
 }
